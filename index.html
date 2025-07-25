@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Antibiotic Combination Planner</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
-    th.antibiotic { cursor: pointer; background: #eef; }
-    th.group { background: #dde; }
-    tr.section { background: #f7f7f7; font-weight: bold; }
-    .sel-orange { background-color: orange !important; }
-    .sel-green { background-color: lightgreen !important; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+      font-size: 14px;
+    }
+    th.antibiotic {
+      cursor: pointer;
+      background-color: #eef;
+    }
+    th.group {
+      background-color: #dde;
+    }
+    tr.section {
+      background-color: #f7f7f7;
+      font-weight: bold;
+    }
+    .sel-orange {
+      background-color: orange !important;
+    }
+    .sel-green {
+      background-color: lightgreen !important;
+    }
   </style>
 </head>
 <body>
-  <h2>Antibiotic Combination Planner (80–90% orange / 90–100% green)</h2>
+  <h2>Antibiotic Combination Planner</h2>
+  <p>Click any antibiotic to highlight its coverage: <span style="background:lightgreen">≥90%</span>, <span style="background:orange">80–89%</span></p>
+  
   <table id="antibiogram">
     <thead>
-      <tr><th rowspan="2">Organism</th>
-        <th class="group" colspan="4">β‑Lactams</th>
+      <tr>
+        <th rowspan="2">Organism</th>
+        <th class="group" colspan="5">β‑Lactams</th>
         <th class="group" colspan="1">Fluoroquinolones</th>
         <th class="group" colspan="1">Aminoglycosides</th>
-        <th class="group" colspan="5">Gram‑positive agents</th>
+        <th class="group" colspan="6">Other / Gram‑positive Agents</th>
       </tr>
       <tr>
         <th class="antibiotic">CFPM</th>
         <th class="antibiotic">CTAZ</th>
         <th class="antibiotic">CTRX</th>
         <th class="antibiotic">P/T</th>
+        <th class="antibiotic">AMP/PCN</th>
         <th class="antibiotic">CIP</th>
         <th class="antibiotic">TOB</th>
         <th class="antibiotic">CLIN</th>
@@ -36,79 +63,64 @@
         <th class="antibiotic">DOX</th>
         <th class="antibiotic">LZD</th>
         <th class="antibiotic">VANC</th>
+        <th class="antibiotic">NAF</th>
+        <th class="antibiotic">T/S</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="section"><td colspan="12">Gram‑Negative</td></tr>
-      <!-- Gram‑Negative rows -->
-      <tr><td>Citrobacter freundii</td><td>96</td><td>N/A</td><td>N/A</td><td>82</td><td>78</td><td>82</td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Enterobacter cloacae</td><td>87</td><td>87</td><td>87</td><td>89</td><td>90</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Escherichia coli</td><td>82</td><td>86</td><td>99</td><td>86</td><td>64</td><td>86</td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Klebsiella aerogenes</td><td>97</td><td>N/A</td><td>98</td><td>N/A</td><td>95</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Klebsiella oxytoca</td><td>89</td><td>82</td><td>97</td><td>85</td><td>85</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Klebsiella pneumoniae</td><td>79</td><td>74</td><td>97</td><td>85</td><td>72</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Proteus mirabilis</td><td>94</td><td>90</td><td>100</td><td>88</td><td>73</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Pseudomonas aeruginosa</td><td>90</td><td>89</td><td>N/A</td><td>97</td><td>81</td><td>97</td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Serratia marcescens</td><td>98</td><td>100</td><td>98</td><td>97</td><td>89</td><td>97</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="section"><td colspan="16">Gram‑Negative</td></tr>
+      <tr><td>Citrobacter freundii</td><td>96</td><td></td><td></td><td>82</td><td></td><td>78</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Enterobacter cloacae</td><td>87</td><td></td><td>87</td><td>89</td><td></td><td>90</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Escherichia coli</td><td>82</td><td>86</td><td>99</td><td>86</td><td></td><td>64</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Klebsiella aerogenes</td><td>97</td><td></td><td>98</td><td></td><td></td><td>95</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Klebsiella oxytoca</td><td>89</td><td>82</td><td>97</td><td>85</td><td></td><td>85</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Klebsiella pneumoniae</td><td>79</td><td>74</td><td>97</td><td>85</td><td></td><td>72</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Proteus mirabilis</td><td>94</td><td></td><td>100</td><td>88</td><td></td><td>73</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Pseudomonas aeruginosa</td><td>90</td><td>89</td><td></td><td>97</td><td></td><td>81</td><td>97</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>Serratia marcescens</td><td>98</td><td>100</td><td>98</td><td>97</td><td></td><td>89</td><td>97</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 
-      <tr class="section"><td colspan="12">Gram‑Positive</td></tr>
-      <!-- Gram‑Positive rows -->
-      <tr><td>Staphylococcus aureus (MSSA)</td><td></td><td>N/A</td><td></td><td></td><td></td><td></td><td>71</td><td>100</td><td>85</td><td>99</td><td>99</td></tr>
-      <tr><td>Staphylococcus aureus (MRSA)</td><td></td><td>N/A</td><td></td><td></td><td></td><td></td><td>60</td><td>100</td><td>66</td><td>99</td><td>99</td></tr>
-      <tr><td>Staphylococcus epidermidis</td><td></td><td>N/A</td><td></td><td></td><td></td><td></td><td>57</td><td>100</td><td>72</td><td>99</td><td>100</td></tr>
-      <tr><td>Staphylococcus lugdunensis</td><td></td><td>N/A</td><td></td><td></td><td></td><td></td><td>86</td><td>100</td><td>90</td><td>100</td><td>100</td></tr>
-      <tr><td>Viridans group streptococci</td><td></td><td>95</td><td></td><td></td><td></td><td></td><td>81</td><td>100</td><td>61</td><td></td><td>100</td></tr>
-      <tr><td>Streptococcus anginosus group</td><td></td><td>100</td><td></td><td></td><td></td><td></td><td>81</td><td>100</td><td>52</td><td></td><td>100</td></tr>
-      <tr><td>Streptococcus mitis</td><td></td><td>95</td><td></td><td></td><td></td><td></td><td>77</td><td>100</td><td>71</td><td></td><td>100</td></tr>
-      <tr><td>Enterococcus faecalis</td><td></td><td>98</td><td></td><td></td><td></td><td></td><td>25</td><td></td><td>18</td><td></td><td>96</td></tr>
-      <tr><td>Enterococcus faecium</td><td></td><td>98</td><td></td><td></td><td></td><td></td><td>11</td><td></td><td>18</td><td>96</td><td>39</td></tr>
+      <tr class="section"><td colspan="16">Gram‑Positive</td></tr>
+      <tr><td>Staphylococcus aureus (MSSA)</td><td></td><td></td><td></td><td></td><td>84</td><td></td><td></td><td>71</td><td>100</td><td>85</td><td>99</td><td>99</td><td>72</td><td>95</td></tr>
+      <tr><td>Staphylococcus aureus (MRSA)</td><td></td><td></td><td></td><td></td><td>56</td><td></td><td></td><td>60</td><td>100</td><td>66</td><td>99</td><td>99</td><td></td><td>91</td></tr>
+      <tr><td>Staphylococcus epidermidis</td><td></td><td></td><td></td><td></td><td>63</td><td></td><td></td><td>57</td><td>100</td><td>72</td><td>99</td><td>100</td><td>72</td><td></td></tr>
+      <tr><td>Staphylococcus lugdunensis</td><td></td><td></td><td></td><td></td><td>77</td><td></td><td></td><td>86</td><td>100</td><td>90</td><td>100</td><td>100</td><td>90</td><td></td></tr>
+      <tr><td>Viridans group streptococci</td><td></td><td>95</td><td></td><td></td><td>85</td><td></td><td></td><td>81</td><td>100</td><td>61</td><td></td><td>100</td><td></td><td></td></tr>
+      <tr><td>Streptococcus anginosus group</td><td></td><td>100</td><td></td><td></td><td>89</td><td></td><td></td><td>81</td><td>100</td><td>52</td><td></td><td>100</td><td></td><td></td></tr>
+      <tr><td>Streptococcus mitis</td><td></td><td>95</td><td></td><td></td><td>88</td><td></td><td></td><td>77</td><td>100</td><td>71</td><td></td><td>100</td><td></td><td></td></tr>
+      <tr><td>Enterococcus faecalis</td><td></td><td>98</td><td></td><td></td><td>68</td><td></td><td></td><td>25</td><td></td><td>18</td><td></td><td>96</td><td></td><td></td></tr>
+      <tr><td>Enterococcus faecium</td><td></td><td>98</td><td></td><td></td><td>15</td><td></td><td></td><td>11</td><td></td><td>18</td><td>96</td><td>39</td><td></td><td></td></tr>
     </tbody>
   </table>
 
-<script>
-  const selections = {};
+  <script>
+    const selections = {};
+    const headers = Array.from(document.querySelectorAll('thead tr:nth-child(2) th.antibiotic'));
 
-  // Match column names to index
-  const headers = Array.from(document.querySelectorAll('thead tr:nth-child(2) th'));
-  const abxMap = {}; // antibiotic name → column index
-  headers.forEach((th, i) => {
-    if (th.classList.contains('antibiotic')) {
-      abxMap[th.textContent.trim()] = i + 1; // account for first column (organism name)
-    }
-  });
+    headers.forEach((th, idx) => {
+      const abx = th.textContent.trim();
+      th.addEventListener('click', () => {
+        const colIdx = idx + 1;
+        const isActive = selections[abx];
 
-  headers.forEach((th, i) => {
-    if (!th.classList.contains('antibiotic')) return;
-
-    const abx = th.textContent.trim();
-
-    th.addEventListener('click', () => {
-      const colIndex = abxMap[abx];
-
-      if (selections[abx]) {
-        document.querySelectorAll(`#antibiogram tbody tr td:nth-child(${colIndex + 1})`)
-          .forEach(td => {
-            td.classList.remove('sel-orange', 'sel-green');
-          });
-        delete selections[abx];
-      } else {
-        selections[abx] = true;
-        document.querySelectorAll(`#antibiogram tbody tr`).forEach(tr => {
-          const td = tr.children[colIndex];
-          if (!td) return;
-
-          const val = parseInt(td.textContent);
-          if (!isNaN(val)) {
-            if (val >= 90) {
-              td.classList.add('sel-green');
-            } else if (val >= 80) {
-              td.classList.add('sel-orange');
+        if (isActive) {
+          document.querySelectorAll(`#antibiogram tbody tr td:nth-child(${colIdx + 1})`)
+            .forEach(td => td.classList.remove('sel-green', 'sel-orange'));
+          delete selections[abx];
+        } else {
+          selections[abx] = true;
+          document.querySelectorAll(`#antibiogram tbody tr`).forEach(tr => {
+            const td = tr.children[colIdx];
+            if (!td) return;
+            const val = td.textContent.trim();
+            const num = parseInt(val);
+            if (!isNaN(num)) {
+              if (num >= 90) td.classList.add('sel-green');
+              else if (num >= 80) td.classList.add('sel-orange');
             }
-          }
-        });
-      }
+          });
+        }
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
